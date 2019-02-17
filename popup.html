@@ -1,0 +1,176 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+body {
+  width: 380px;
+  height: 370px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 3px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+label {
+  font-weight: bold;
+}
+.fonts-header {
+  font-weight: bold;
+  margin-top: 10px;
+}
+#step1 {
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-bottom: 7px;
+}
+#step2 {
+  width: 100%;
+}
+#step3 {
+  clear:both;
+  width: 100%;
+  border-top: 2px solid black;
+  margin-bottom: 7px;
+}
+#step4 {
+  text-align: center;
+  border-top: 1px dotted black;
+  padding-top: 5px;
+  width: 100%;
+}
+#fonts {
+  float: right;
+  width: 58%;
+  height: 100%;
+  overflow: auto;
+  text-align: left;
+  padding-left: 5px;
+  border-left: 1px solid #ccc;
+}
+#fonts:first-child {
+  margin-top: 0px;
+}
+.localstarage {
+  cursor: pointer;
+  color: #DDD;
+  padding-right: 5px;
+}
+.localstarage:hover {
+  color: #FFE47A;
+}
+.localstarage.starred:hover {
+  color: #FFCC00;
+}
+.localstarage.starred {
+  color: #FFCC00;
+  -webkit-text-stroke-color: #666;
+  -webkit-text-stroke-width: 1px;
+}
+  </style>
+ </head>
+ <body>
+  <div style="clear:both">
+    <div id="step1">
+      <p>
+      <b>1.</b> Specify a CSS selector: <input id="selector" type="text" value="*" onkeyup="document.forms[0].reset()">
+      <br><em>Defaults to "*", which will apply the changes to everything.</em>
+      </p>
+    </div>
+
+   <form>
+    <div id="step2">
+      <p>
+      <b>2.</b> Try different font families and text styling options.
+      </p>
+    </div>
+
+    <div id="fonts">
+     <label>Filter:</label>
+     <select id="fonts-subset">
+       <option value="cyrillic">Cyrillic</option>
+       <option value="cyrillic-ext">Cyrillic Ext</option>
+       <option value="greek">Greek</option>
+       <option value="greek-ext">Greek Ext</option>
+       <option value="khmer">Khmer</option>
+       <option value="latin" selected>Latin</option>
+       <option value="latin-ext">Latin Ext</option>
+       <option value="vietnamese">Vietnamese</option>
+     </select>
+     <div class="fonts-header">Your Favorites:</div>
+     <div id="fonts-starred"></div>
+     <div class="fonts-header">Browse All:</div>
+     <div id="fonts-all">
+      <div id="nofont" style="display: none;">
+        <input type="radio" name="fontFamily" checked value="" style="display:none">
+      </div>
+     </div>
+    </div>
+
+    <div>
+     <p><label>Size:<br>
+      <select id="fontSize">
+       <option>50%</option>
+       <option selected>100%</option>
+       <option>150%</option>
+       <option>200%</option>
+      </select></label>
+     </p>
+     <p><label>Style: <br>
+      <select id="fontStyle">
+       <option selected>regular</option>
+       <option>italic</option>
+      </select></label>
+     </p>
+     <p><label>Weight: <br>
+      <select id="fontWeight">
+       <option selected>regular</option>
+       <option>bold</option>
+      </select></label>
+     </p>
+     <p><label>Shadow:<br>
+      <select id="textShadow">
+       <option selected>none</option>
+       <option>2px 2px 2px #aaa</option>
+       <option>4px 4px 4px #bbb</option>
+       <option>6px 6px 6px #ccc</option>
+       <option>8px 8px 8px #ddd</option>
+      </select></label>
+     </p>
+     <p><label>Transform:<br>
+      <select id="textTransform">
+       <option selected>none</option>
+       <option>capitalize</option>
+       <option>uppercase</option>
+       <option>lowercase</option>
+      </select></label>
+     </p>
+     <p><label>Decoration:<br>
+      <select id="textDecoration">
+       <option selected>none</option>
+       <option>underline</option>
+       <option>line-through</option>
+       <option>overline</option>
+      </select></label>
+     </p>
+    </div>
+   </div>
+
+   <div id="step3">
+     <p>
+     <b>3.</b> Copy this HTML and paste into your webpage.
+     </p>
+    <textarea id="fontHtml" style="width:100%; height: 70px;">
+    </textarea>
+   </div>
+
+   <div id="step4">
+     To start over, either reload the page or
+     <a href="javascript:resetFont()">click here</a>.
+   </div>
+  </form>
+  <script src="jquery.js"></script>
+  <script src="lscache.js"></script>
+  <script src="localstarage.js"></script>
+  <script src="popup.js"></script>
+ </body>
+</html>
